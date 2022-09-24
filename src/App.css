@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: 'Oi';
+  -webkit-text-stroke: 2px black; 
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 255, 255, 0.403),rgb(116, 251, 217));
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.nav{
+  font-size: 2rem;
+  letter-spacing: 5px;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+button{
+  margin: 1rem;
+  font-size: 2.2rem;
+  background: transparent;
+  transition: 0.5s;
+}
+button:hover{
+  /* box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.5); */
+  filter: invert();
+}
+.board{
+  height: 60vh;
+  width: 60vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background: darkturquoise;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 10px;
+  box-shadow: 1px 10px 15px 1px rgba(0,0,0,0.5);
+  transition: 1s;
+}
+.tile{
+  border-radius: 10px;
+  font-size: 2rem;
+  color: white;
+  box-shadow: 1px 1px 1px 1px gray;
+  transition: 0.5s box-shadow;
+  /* background-image: url('./components/img/t10.webp'); */
+}
+.tile:hover{
+  box-shadow: 1px 1px 10px 3px gray;
+}
+.modal{
+  position: absolute;
+  height: 60vh;
+  width: 60vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  color: aliceblue;
+  background: linear-gradient(rgb(176, 249, 131),rgb(239, 203, 56));
+  z-index: 10;
+  border: 1px solid gold;
+  border-radius: 10px;
+  line-height: 3rem;
+  letter-spacing: 2px;
+}
+.modal span{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  line-height: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media(max-width: 500px){
+  .nav{
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    overflow: scroll;
   }
-  to {
-    transform: rotate(360deg);
+  button{
+    font-size: 1.2rem;
+    margin: 5px;
+  }
+  .board{
+    height: 90vw;
+    width: 90vw;
+  }
+  .modal{
+    height: 90vw;
+    width: 90vw;
+    font-size: 1rem;
+    -webkit-text-stroke: 1px black; 
   }
 }
