@@ -30,11 +30,19 @@ export default function Board({a, seta, img, setWon, setMoves}){
     }
     function shuffle(){
         let tempArr = [...a].sort(()=> 0.5-Math.random())
-        if(tempArr.indexOf(15) < tempArr.indexOf(14)){
-            let temp = tempArr.indexOf(14)
-            tempArr[tempArr.indexOf(15)] = 14
-            tempArr[temp] = 15
-        }
+        let inv_count = 0
+        for(let i=0;i<15;i++)
+            for(let j=i+1;j<16;j++)
+                if(tempArr[j] && tempArr[i] && tempArr[i]>tempArr[j])
+                    inv_count += 1
+        let zin = tempArr.indexOf(0)
+        let zp
+        if(zin < 4) zp = 0
+        else if(zin > 3 && zin < 8) zp = 1
+        else if(zin > 7 && zin < 12) zp = 2
+        else zp = 3
+        if((inv_count + zp)%2 === 0)
+            return shuffle()
         return tempArr
         // // let zi,top,bottom,left,right,d
         // // for(let i=0;i<100;i++){

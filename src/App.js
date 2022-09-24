@@ -24,7 +24,7 @@ function App() {
         transition: '3s'
       }}
     >
-      <Navbar seta={seta} setImg={setImg} />
+      <Navbar seta={seta} setImg={setImg} a={a} setMoves={setMoves} />
       <span style={{position: 'absolute',top: 100,WebkitTextStroke: '0.5px black',color: 'lightgreen',letterSpacing:'2px'}}>Moves: {moves}</span>
       <Board a={a} seta={seta} img={img} setWon={setWon} setMoves={setMoves}/>
       {/* {console.log(won)} */}
